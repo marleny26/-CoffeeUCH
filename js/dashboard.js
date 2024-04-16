@@ -126,10 +126,11 @@ if (idcompra) {
         });
     }
 }
-//verificar si se esta logueado
 function verificarAutenticacion() {
-    if (!localStorage.getItem("userLogueado")) {
-        location.href = "index.html";
+    // Verificar si el usuario está autenticado usando localStorage
+    var isLoggedIn = localStorage.getItem('"userLogueado"');
+    if (isLoggedIn !== 'true') {
+        window.location.href = 'index.html'; // Redirigir a index.html si no está autenticado
     }
 }
 verificarAutenticacion();
@@ -139,3 +140,4 @@ document.getElementById("salir").addEventListener('click', function () {
     localStorage.removeItem("userLogueado");
     location.href = "index.html";
 });
+
